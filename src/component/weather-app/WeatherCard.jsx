@@ -1,8 +1,9 @@
 import React from "react";
 import "../../styles/weather-app/weather-card.css";
+import "../../styles/weather-app/shadow.css"
 function WeatherCard(props) {
     
-    const cardClass= `card ${props.isLast?'':'right-margin'}`
+    const cardClass= `card ${props.isLast?'':'right-margin'} shadow`
   return (
     <div className={cardClass}>
       <h1>{props.type}</h1>

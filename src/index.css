@@ -4,9 +4,10 @@ body {
     background-color: rgb(215, 215, 215);
     margin: 0;
     height: 100vh;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 @font-face {
-    font-family: DM;
+    font-family:DM;
     src: url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 }

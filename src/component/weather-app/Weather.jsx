@@ -4,24 +4,33 @@ import WeatherCard from "./WeatherCard.jsx";
 import "../../styles/weather-app/weather.css";
 import HeaderBar from "./HeaderBar.jsx";
 import PlaceOverviewCard from "./PlaceOverviewCard.jsx";
+import "../../styles/weather-app/shadow.css"
+
 
 import "../../styles/weather-app/weather.css";
 import WeatherStats from "./WeatherStats.jsx";
 
 const Weather = () => {
   const [forecast, setForecast] = useState({});
+  const [searchkey,setsearchKey]=useState('Sri Lanka');
+
+  const searchHandler=(item)=>{
+    console.log(item);
+    setsearchKey(item);
+    
+  }
 
   useEffect(() => {
     fetchWeather().then((result) => {
       setForecast(result);
       console.log(result);
     });
-  }, []);
+  }, [searchkey]);
 
   async function fetchWeather() {
     try {
       let response = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=Bangalore&days=5&aqi=no&alerts=no"
+        `http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=${searchkey}&days=5&aqi=no&alerts=no`
       );
       let res = await response.json();
       return res;
@@ -32,7 +41,8 @@ const Weather = () => {
 
     return (
         <div className="body-card">
-            <HeaderBar
+            <HeaderBar 
+                searchHandler={searchHandler}
                 weatherText={
                     forecast["current"] != null
                         ? forecast["current"]["condition"]["text"]

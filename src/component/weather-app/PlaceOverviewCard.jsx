@@ -1,7 +1,7 @@
 import "../../styles/weather-app/place-overview-card.css";
 import dayImage from "../../assets/day.jpeg";
 import nightImage from "../../assets/night.jpg";
-
+import "../../styles/weather-app/shadow.css"
 const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage }) => {
     var overviewCardBackground = {
         backgroundImage: isDay() ? `url(${dayImage})` : `url(${nightImage})`,
@@ -27,10 +27,10 @@ const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage }) => {
 
     return (
         <div
-            className="place-overview-card-wrapper"
+            className="place-overview-card-wrapper shadow"
             style={overviewCardBackground}
         >
-            <div className="place-temperature-wrapper">
+            <div className="place-temperature-wrapper ">
                 <div className="place-name" style={fontColorStyle}>
                     {placeName}
                 </div>
