@@ -8,26 +8,26 @@ import "../../styles/weather-app/weather.css";
 import WeatherStats from "./WeatherStats.jsx";
 
 const Weather = () => {
-    const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState({});
 
-    useEffect(() => {
-        fetchWeather().then((result) => {
-            setForecast(result);
-            console.log(result);
-        });
-    }, []);
+  useEffect(() => {
+    fetchWeather().then((result) => {
+      setForecast(result);
+      console.log(result);
+    });
+  }, []);
 
-    async function fetchWeather() {
-        try {
-            let response = await fetch(
-                "http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=Bangalore&days=5&aqi=no&alerts=no"
-            );
-            let res = await response.json();
-            return res;
-        } catch (e) {
-            console.log(e);
-        }
+  async function fetchWeather() {
+    try {
+      let response = await fetch(
+        "http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=Bangalore&days=5&aqi=no&alerts=no"
+      );
+      let res = await response.json();
+      return res;
+    } catch (e) {
+      console.log(e);
     }
+  }
 
     return (
         <div className="body-card">
