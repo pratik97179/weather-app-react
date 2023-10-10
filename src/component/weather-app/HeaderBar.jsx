@@ -2,8 +2,14 @@ import { useRef } from "react";
 import "../../styles/weather-app/header-bar.css";
 import { click } from "@testing-library/user-event/dist/click";
 
-const HeaderBar = ({searchHandler, weatherText }) => {
+const HeaderBar = ({ searchHandler, weatherText, forecast }) => {
   const inputRef = useRef();
+
+  const resultTime = forecast["location"]&&forecast["location"]["localtime"].split(" ");
+  
+   
+   console.log(resultTime);
+   
 
   function getCurrentDayTime() {
     const currentDate = new Date();
@@ -21,14 +27,15 @@ const HeaderBar = ({searchHandler, weatherText }) => {
       hour: "2-digit",
       minute: "2-digit",
     });
+    const realTime=resultTime?resultTime[1]:time;
 
-    return `${day}, ${time}`;
+    return `${day}, ${realTime}`;
   }
   const clickHandler = (event) => {
     event.preventDefault();
     searchHandler(inputRef.current.value);
 
-    inputRef.current.value='';
+    inputRef.current.value = "";
   };
 
   return (

@@ -2,7 +2,7 @@ import "../../styles/weather-app/place-overview-card.css";
 import dayImage from "../../assets/day.jpeg";
 import nightImage from "../../assets/night.jpg";
 import "../../styles/weather-app/shadow.css"
-const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage }) => {
+const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage,realTime }) => {
     var overviewCardBackground = {
         backgroundImage: isDay() ? `url(${dayImage})` : `url(${nightImage})`,
         backgroundSize: "cover",
@@ -10,15 +10,15 @@ const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage }) => {
 
     function isDay() {
         var date = new Date();
-        var time = date.toLocaleTimeString([], {
+        var time = realTime?realTime:date.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
         });
 
-        if (time.substring(0, 2) > "06" && time.substring(0, 2) < "18") {
-            return true;
-        }
-        return false;
+        // if (time.substring(0, 2) > "06" && time.substring(0, 2) < "18") {
+        //     return true;
+        // }
+        return true;
     }
 
     var fontColorStyle = {

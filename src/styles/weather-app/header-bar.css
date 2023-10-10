@@ -3,6 +3,24 @@
     align-items: center;
     justify-content: space-between;
 }
+button{
+    text-decoration: none;
+        -webkit-border-radius: 28;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 10px;
+        background: rgb(219,180,104);
+        padding: 10px 20px 10px 20px;
+        border-style: none;
+        
+     
+}
+button:hover{
+    text-decoration: none;
+    cursor: pointer
+}
 
 .weather-search-bar {
     height: 4vh;
