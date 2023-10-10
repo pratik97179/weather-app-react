@@ -4,12 +4,13 @@
     flex-direction: column;
     background-color: #F4F2EC;
 }
+
 .weather-card{
-
     display: flex;
-
     flex-direction: row;
-    
-    
     justify-content: space-evenly;
+}
+
+.graph-weather-stats-wrapper {
+    display: flex;
 }

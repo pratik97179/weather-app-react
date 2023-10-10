@@ -1,34 +1,34 @@
 import { useState, useEffect } from "react";
 
 import WeatherCard from "./WeatherCard.jsx";
-import "../../styles/weather-app/weather.css";
 import HeaderBar from "./HeaderBar.jsx";
 import PlaceOverviewCard from "./PlaceOverviewCard.jsx";
+import WeatherStats from "./WeatherStats.jsx";
+import ForecastChart from "./ForecastChart.jsx";
 
 import "../../styles/weather-app/weather.css";
-import WeatherStats from "./WeatherStats.jsx";
 
 const Weather = () => {
-  const [forecast, setForecast] = useState({});
+    const [forecast, setForecast] = useState({});
 
-  useEffect(() => {
-    fetchWeather().then((result) => {
-      setForecast(result);
-      console.log(result);
-    });
-  }, []);
+    useEffect(() => {
+        fetchWeather().then((result) => {
+            setForecast(result);
+            console.log(result);
+        });
+    }, []);
 
-  async function fetchWeather() {
-    try {
-      let response = await fetch(
-        "http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=Bangalore&days=5&aqi=no&alerts=no"
-      );
-      let res = await response.json();
-      return res;
-    } catch (e) {
-      console.log(e);
+    async function fetchWeather() {
+        try {
+            let response = await fetch(
+                "http://api.weatherapi.com/v1/forecast.json?key=711ba0ec77e3441bab3124346231409&q=Bangalore&days=5&aqi=no&alerts=no"
+            );
+            let res = await response.json();
+            return res;
+        } catch (e) {
+            console.log(e);
+        }
     }
-  }
 
     return (
         <div className="body-card">
@@ -57,51 +57,62 @@ const Weather = () => {
                 }
             />
             <div className="weather-card">
-                    <WeatherCard
-                      type={"Temperature"}
-                      action={forecast["current"] != null && `${forecast["current"]["temp_c"]}°C`}
-                    />
-                    <WeatherCard
-                      type={"Wind Speed"}
-                      action={
-                        forecast["current"] != null && `${forecast["current"]["wind_kph"]} km/h`
-                      }
-                    />
+                <WeatherCard
+                    type={"Temperature"}
+                    action={
+                        forecast["current"] != null &&
+                        `${forecast["current"]["temp_c"]}°C`
+                    }
+                />
+                <WeatherCard
+                    type={"Wind Speed"}
+                    action={
+                        forecast["current"] != null &&
+                        `${forecast["current"]["wind_kph"]} km/h`
+                    }
+                />
 
-                    <WeatherCard
-                      type={"Humidity"}
-                      action={
-                        forecast["current"] != null && `${forecast["current"]["humidity"]} %`
-                      }
-                    />
-                    <WeatherCard
-                      type={"Pressure"}
-                      isLast={true}
-                      action={
-                        forecast["current"] != null && `${forecast["current"]["pressure_in"]}mm`
-                      }
-                    />
-                  </div>
-            <WeatherStats
-                uvIndex={
-                    forecast["current"] != null ? forecast["current"]["uv"] : ""
-                }
-                visibility={
-                    forecast["current"] != null
-                        ? forecast["current"]["vis_km"]
-                        : ""
-                }
-                feelsLike={
-                    forecast["current"] != null
-                        ? forecast["current"]["feelslike_c"]
-                        : ""
-                }
-                precip={
-                    forecast["current"] != null
-                        ? forecast["current"]["precip_mm"]
-                        : ""
-                }
-            />
+                <WeatherCard
+                    type={"Humidity"}
+                    action={
+                        forecast["current"] != null &&
+                        `${forecast["current"]["humidity"]} %`
+                    }
+                />
+                <WeatherCard
+                    type={"Pressure"}
+                    isLast={true}
+                    action={
+                        forecast["current"] != null &&
+                        `${forecast["current"]["pressure_in"]}mm`
+                    }
+                />
+            </div>
+            <div className="graph-weather-stats-wrapper">
+                <ForecastChart weatherForecast={forecast["forecast"]} />
+                <WeatherStats
+                    uvIndex={
+                        forecast["current"] != null
+                            ? forecast["current"]["uv"]
+                            : ""
+                    }
+                    visibility={
+                        forecast["current"] != null
+                            ? forecast["current"]["vis_km"]
+                            : ""
+                    }
+                    feelsLike={
+                        forecast["current"] != null
+                            ? forecast["current"]["feelslike_c"]
+                            : ""
+                    }
+                    precip={
+                        forecast["current"] != null
+                            ? forecast["current"]["precip_mm"]
+                            : ""
+                    }
+                />
+            </div>
         </div>
     );
 };
