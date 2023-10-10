@@ -64,6 +64,7 @@ const Weather = () => {
             forecast["current"] != null && `${forecast["current"]["wind_kph"]} km/h`
           }
         />
+        
         <WeatherCard
           type={"Humidity"}
           action={
