@@ -1,0 +1,18 @@
+.wrapper-with-border {
+    padding-bottom: 1vh;
+    margin-bottom: 2vh;
+    display: flex;
+    height: 6vh;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.title {
+    font-size: 0.9rem;
+}
+
+.value {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
