@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
+import WeatherOverview from "./WeatherOverview.jsx";
+import WeatherDescription from "./WeatherDescription.jsx";
 import WeatherCard from "./WeatherCard.jsx";
+import "../../styles/weather-app/weather.css";
 import HeaderBar from "./HeaderBar.jsx";
 import PlaceOverviewCard from "./PlaceOverviewCard.jsx";
 
@@ -56,11 +59,31 @@ const Weather = () => {
                 }
             />
             <div className="weather-card">
-                <WeatherCard />
-                <WeatherCard />
-                <WeatherCard />
-                <WeatherCard />
-            </div>
+                    <WeatherCard
+                      type={"Temperature"}
+                      action={forecast["current"] != null && `${forecast["current"]["temp_c"]}°C`}
+                    />
+                    <WeatherCard
+                      type={"Wind Speed"}
+                      action={
+                        forecast["current"] != null && `${forecast["current"]["wind_kph"]} km/h`
+                      }
+                    />
+
+                    <WeatherCard
+                      type={"Humidity"}
+                      action={
+                        forecast["current"] != null && `${forecast["current"]["humidity"]} %`
+                      }
+                    />
+                    <WeatherCard
+                      type={"Pressure"}
+                      isLast={true}
+                      action={
+                        forecast["current"] != null && `${forecast["current"]["pressure_in"]}mm`
+                      }
+                    />
+                  </div>
             <WeatherStats
                 uvIndex={
                     forecast["current"] != null ? forecast["current"]["uv"] : ""
