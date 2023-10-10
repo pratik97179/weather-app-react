@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import WeatherOverview from "./WeatherOverview.jsx";
-import WeatherDescription from "./WeatherDescription.jsx";
 import WeatherCard from "./WeatherCard.jsx";
 import "../../styles/weather-app/weather.css";
 import HeaderBar from "./HeaderBar.jsx";
