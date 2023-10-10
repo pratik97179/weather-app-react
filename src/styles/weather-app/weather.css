@@ -5,8 +5,11 @@
     background-color: #F4F2EC;
 }
 .weather-card{
+
     display: flex;
+
     flex-direction: row;
-    background-color: antiquewhite;
-    justify-content: space-around;
+    
+    
+    justify-content: space-evenly;
 }
