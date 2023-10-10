@@ -14,11 +14,11 @@ const PlaceOverviewCard = ({ placeName, currentTemperature, placeImage,realTime 
             hour: "2-digit",
             minute: "2-digit",
         });
-
-        // if (time.substring(0, 2) > "06" && time.substring(0, 2) < "18") {
-        //     return true;
-        // }
-        return true;
+      console.log(realTime);
+        if (time.substring(0, 2) > "06" && time.substring(0, 2) < "18") {
+            return true;
+        }
+        return false;
     }
 
     var fontColorStyle = {
