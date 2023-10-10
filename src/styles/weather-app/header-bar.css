@@ -1,0 +1,22 @@
+.header-bar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weather-search-bar {
+    height: 4vh;
+    width: 40vw;
+    border: none;
+    padding: 0 1vh;
+    border-radius: 0.7vh;
+}
+
+.day-time {
+    font-weight: bold;
+}
+
+.input-form-field {
+    background-color: white;
+    padding: 20px;
+}

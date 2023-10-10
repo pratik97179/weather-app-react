@@ -1,0 +1,26 @@
+.place-overview-card-wrapper {
+    border-radius: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    display: flex;
+    background-color: white;
+    padding: 3vh;
+    justify-content: space-between;
+}
+
+.place-name {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.current-temperature {
+    padding-top: 4vh;
+    font-weight: bold;
+    font-size: 4rem;
+    padding-bottom: 5vh;
+}
+
+.weather-icon {
+    height: 10vh;
+    width: 10vh;
+}

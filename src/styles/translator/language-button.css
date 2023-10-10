@@ -1,0 +1,15 @@
+.language-button {
+    display: inline;
+    margin-right: 2vh;
+    padding: 2vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+
+.output-title {
+    margin-bottom: 4vh;
+}
+
+.selected-color {
+    background-color: rgb(253, 215, 221);
+}

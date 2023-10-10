@@ -1,0 +1,6 @@
+.body-card {
+    display: flex;
+    padding: 3vh 10vw;
+    flex-direction: column;
+    background-color: #F4F2EC;
+}
