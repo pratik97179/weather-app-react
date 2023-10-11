@@ -104,7 +104,7 @@ const Weather = () => {
                             ? forecast["current"]["uv"]
                             : ""
                     }
-                    visibility={
+                    visibility={ 
                         forecast["current"] != null
                             ? forecast["current"]["vis_km"]
                             : ""
