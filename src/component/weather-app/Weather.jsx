@@ -5,18 +5,13 @@ import HeaderBar from "./HeaderBar.jsx";
 import PlaceOverviewCard from "./PlaceOverviewCard.jsx";
 import WeatherStats from "./WeatherStats.jsx";
 import ForecastChart from "./ForecastChart.jsx";
+import "../../styles/weather-app/shadow.css";
 
 import "../../styles/weather-app/weather.css";
 
 const Weather = () => {
     const [forecast, setForecast] = useState({});
-
-    useEffect(() => {
-        fetchWeather().then((result) => {
-            setForecast(result);
-            console.log(result);
-        });
-    }, []);
+    const [searchkey, setsearchKey] = useState("Sri Lanka");
 
     async function fetchWeather() {
         try {
@@ -30,9 +25,22 @@ const Weather = () => {
         }
     }
 
+    const searchHandler = (item) => {
+        console.log(item);
+        setsearchKey(item);
+    };
+
+    useEffect(() => {
+        fetchWeather().then((result) => {
+            setForecast(result);
+            console.log(result);
+        });
+    }, [searchkey]);
+
     return (
         <div className="body-card">
             <HeaderBar
+                searchHandler={searchHandler}
                 weatherText={
                     forecast["current"] != null
                         ? forecast["current"]["condition"]["text"]
